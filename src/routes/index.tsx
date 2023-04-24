@@ -1,34 +1,23 @@
-import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
-import { VoiceOpenAi } from '~/components/voice/voice';
-
-// declare global {
-//   type window = any;
-//   interface Window {
-//     SpeechRecognition: any;
-//     webkitSpeechRecognition: any;
-//   }
-// }
+import { component$, useSignal } from "@builder.io/qwik";
+import type { DocumentHead } from "@builder.io/qwik-city";
+import { MeetingMinutes } from "~/components/MeetingMinutes/Index";
 
 export default component$(() => {
-
-
+  const jsx = useSignal(<div>gd</div>);
   return (
     <div>
-      <VoiceOpenAi/>
+      {jsx.value}
+      <MeetingMinutes />
     </div>
   );
 });
 
 export const head: DocumentHead = {
-  title: 'voice-search',
+  title: "voice-search",
   meta: [
     {
-      name: 'voice-search',
-      content: '말하고 듣는',
+      name: "voice-search",
+      content: "말하고 듣는",
     },
   ],
 };
-
-
-// 오픈 ai를 사용해서 speek 

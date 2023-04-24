@@ -1,7 +1,6 @@
 export interface SpeechHookProps {
-  count: number;
   voiceValue: string;
-  json: any[];
+  meetingSpeakingList: string[];
 }
 
 export const speechHooks = (state: SpeechHookProps) => {
@@ -37,7 +36,7 @@ export const speechHooks = (state: SpeechHookProps) => {
 
     if (e.results[e.results.length - 1].isFinal) {
       const transcript = e.results[e.results.length - 1][0].transcript;
-      state.json = [...state.json, transcript];
+      state.meetingSpeakingList = [...state.meetingSpeakingList, transcript];
       state.voiceValue = "";
     }
 
